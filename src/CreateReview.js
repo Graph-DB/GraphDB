@@ -34,7 +34,7 @@ const CreateReview = (props) => {
   });
   const { user } = useAuth0();
   const date = new Date();
-  const [createReview, { data, loading, error }] = useMutation(CREATE_REVIEW, {
+  const [createReview, { loading, error }] = useMutation(CREATE_REVIEW, {
     errorPolicy: "all",
     variables: {
       stars: formState.stars,

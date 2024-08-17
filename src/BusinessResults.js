@@ -1,6 +1,6 @@
 import { starredVar } from "./index";
 import { useAuth0 } from "@auth0/auth0-react";
-import CreateReview, { createReview } from "./CreateReview";
+import CreateReview from "./CreateReview";
 import { useState } from "react";
 
 function BusinessResults(props) {
@@ -8,7 +8,6 @@ function BusinessResults(props) {
   const starredItems = starredVar();
   const { isAuthenticated } = useAuth0();
   const [formSeen, setFormSeen] = useState(false);
-  const [currentBusiness, setCurrentBusiness] = useState('');
   //alert("in BusinessResults");
 
   const toggleForm = (index) => {
@@ -60,7 +59,7 @@ function BusinessResults(props) {
               {isAuthenticated ? (
                 <td>
                   <button onClick={() =>toggleForm(i)}> Add Review {b.name} </button>
-                  {formSeen === i && <CreateReview  index={i} businesses={businesses} businessName={currentBusiness} toggle={toggleForm} />}
+                  {formSeen === i && <CreateReview  index={i} businesses={businesses} toggle={toggleForm} />}
                 </td>
               ) : null}
               {/*

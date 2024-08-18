@@ -5,17 +5,21 @@
   "dependencies": {
     "@apollo/client": "^3.11.1",
     "@auth0/auth0-react": "^2.2.4",
+    "@neo4j/graphql": "^5.5.6",
+    "@neo4j/graphql-plugin-auth": "^2.2.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "apollo-server-lambda": "^3.13.0",
     "graphql": "^16.9.0",
+    "neo4j-driver": "^5.23.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object":"7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11"
   },
   "scripts": {
     "start": "react-scripts start --no-cache",

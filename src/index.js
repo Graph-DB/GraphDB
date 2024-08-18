@@ -19,7 +19,8 @@ const AppWithApollo = () => {
   const { getAccessTokenSilently, isAuthenticated } = useAuth0();
 
   const httpLink = createHttpLink({
-    uri: "http://localhost:4000",
+    //uri: "http://localhost:4000",
+    uri: process.env.REACT_APP_GRAPHQL_URI
   });
 
   const authLink = setContext(async (_, { headers }) => {
@@ -46,7 +47,6 @@ const AppWithApollo = () => {
   });
 
   const client = new ApolloClient({
-    //uri: "http://localhost:4000",
     link: authLink.concat(httpLink),
     cache: new InMemoryCache({
       typePolicies: {
@@ -74,8 +74,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-spxf3pmvngdhjouv.us.auth0.com"
-      clientId="YlqUnmoHJ1EpT8zgrt7aKPVYJ2fbRZGp"
+      domain={process.env.REACT_APP_AUTH0_DOMAIN}
+      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}

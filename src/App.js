@@ -69,7 +69,7 @@ function App() {
     //pollInterval: 500
   });
 
-  if (error) return <p>Error</p>;
+  if (error) return <p>Error: {error.message.toString()}</p>;
   if (loading) return <p>Loading...</p>;
 
   return (

@@ -71,7 +71,6 @@ function App() {
   if (error) return <p>Error: {error.message.toString()}</p>;
   if (loading) return <p>Loading...</p>;
   const timeAfterUseQueryCall = new Date();
-  const elapsedTime = Date.now() - timeBeforeUseQueryCall;
   return (
     <div>
       <p>{timeBeforeUseQueryCall.toISOString()}</p>

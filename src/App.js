@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BusinessResults from "./BusinessResults";
 import BusinessSearch from "./BusinessSearch";
-import { gql, useQuery} from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 import { useAuth0 } from "@auth0/auth0-react";
 import Profile from "./Profile";
 
@@ -62,8 +62,7 @@ function App() {
   }
 `;
 
- 
-
+  const timeBeforeUseQueryCall = new Date();
   const { loading, error, data, refetch } = useQuery(GET_BUSINESS_QUERY, {
     variables: { selectedCategory },
     //pollInterval: 500
@@ -71,9 +70,12 @@ function App() {
 
   if (error) return <p>Error: {error.message.toString()}</p>;
   if (loading) return <p>Loading...</p>;
-
+  const timeAfterUseQueryCall = new Date();
+  const elapsedTime = Date.now() - timeBeforeUseQueryCall;
   return (
     <div>
+      <p>{timeBeforeUseQueryCall.toISOString()}</p>
+      <p>{timeAfterUseQueryCall.toISOString()}</p>
       {!isAuthenticated && (
         <button onClick={() => loginWithRedirect()}>Log In</button>
       )}

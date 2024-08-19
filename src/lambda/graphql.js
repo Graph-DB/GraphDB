@@ -147,8 +147,9 @@ const initServer = async () => {
 };
 
 exports.handler = async (event, context, callback) => {
+  console.log("before call to initServer")
   const serverHandler = await initServer();
-
+  console.log("after call to initServer")
   return serverHandler(
     {
       ...event,
